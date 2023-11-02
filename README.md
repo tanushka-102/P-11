@@ -59,10 +59,6 @@ These obstacles hinder a seamless and cost-effective shopping experience, highli
 •Response time
 
 
-
-<h3 allign="center">WORKFLOW</h3>
-![Alt text](image-1.png)
-
 <h3 allign="center">TOOLS USED</h3>
 •	HTML: (To build the structure) HTML is a crucial component of the World Wide Web and is used by web developers to create dynamic and interactive websites. 
 
