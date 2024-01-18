@@ -1,0 +1,152 @@
+<!--mardi soir_code non fonctionnel
+adapt to https://github.com/berru-g/Price-comparator
+-->
+<head>
+  <meta charset="UTF-8">
+  <title>Price Wizard</title>
+  <link rel="shortcut icon" href="src\logo.jpg" />
+  <meta name=viewport content="width=device-width, initial-scale=1">
+  <meta name=description content="Your product at the best price on the current market. We offer you the opportunity to find the item you want at the best price, by searching on three sites simultaneously. Save time and energy, save by searching for your products here.">
+  <meta name=author content>
+  <meta name=keywords
+    content="price comparison, amazon low price, good deal amazon, comparator amazon, best price">
+  
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/brython@3/brython.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/brython@3/brython_stdlib.js">
+  </script>
+  <script src="node_modules\axios\dist\axios.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/cheerio@1.0.0/dist/cheerio.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13   .0/jquery-ui.min.js"></script>
+</head>
+<body>
+  <header>
+    
+      <img id="logo" src="src\logo.jpg" alt="Component-comparator" title="price-comparator"> CC
+    </a>
+    <nav>
+      <select>
+        <option value="https://www.amazon.in/s?k=hightech&crid=22MH5N37AKT8C&sprefix=hightech%2Caps%2C268&ref=nb_sb_noss_1">High-tech</option>
+        <a href="https://www.amazon.in/s?k=video+games&crid=R20A3HP1SME8&sprefix=video+games%2Caps%2C260&ref=nb_sb_noss_1"><option value="#">Video Game</option></a>
+        <option value="#">DIY</option>
+        <a href="#"><option value="#">Jardin</option></a>
+        <option value="#">Computer science</option>
+        <option value="#">Mode</option>
+        <a href="#"><option value="#">Home appliance</option></a>
+        <option value="#">Decoration</option>
+        <a href="#"><option value="#">Health</option></a>
+        <option value="#">Sport</option>
+        <option value="#">Compare</option>
+      </select>
+    </nav>
+  </header>
+  <body>
+    <!-- categories -->
+    <section class="categorie dark">
+      <main>
+        <div>
+          <input type="text" id="search-input" placeholder="Enter the product name"
+            title="research product low price">
+          <button id="searchButton">Compare</button>
+        </div>
+        <!--  <form>
+    <input type="text" id="search-input">
+    <button type="button" id="search-button">Rechercher</button>
+  </form>-->
+        <div class="results" id="results" title="component comparison result">
+          <span class="name"></span>
+          <p class="site"></p>
+          <p class="price"></p>
+        </div>
+      </main>
+      <div class="content">
+        <h2>Welcome to the Price Wizard</h2>
+        <p>We offer you the opportunity to find the item you want at the best price, by searching on three sites simultaneously. Save time and energy by searching for your products here.</p>
+        <p>We compare for you!! </p>
+        <p>For you.With you.</p>
+        <a href="#" class="btn">
+          Start <i class=""></i>
+        </a>
+      </div>   
+  </body>
+  <section class="links">
+    <div class="links-inner">
+      <ul>
+        <li>
+          <h3 title="selection of good high-tech deals" >HighTech</h3>
+        </li>
+        <li><a href="https://amzn.to/3ZossgT">Casque</a></li>
+        <li><a href="https://amzn.to/40GhVOV">Xiaomi Watch</a></li>
+        <li><a href="https://amzn.to/3Kbr3Wu">JBL Charge 5</a></li>
+        <li><a href="https://amzn.to/3ZnmBIo" title=" #1 Best Seller in 2-in-1 Laptops
+          Spring Flash Sales
+          -5 %">Surface Pro 7</a></li>
+        <li><a href="https://amzn.to/40FpZPZ">Blackview Android12</a></li>
+      </ul>
+      <ul>
+        <li>
+          <h3 title="selection of good health plans">Health</h3>
+        </li>
+        <li><a href="https://amzn.to/40ifxOC">Personal Care</a></li>
+        <li><a href="https://amzn.to/3Znuldt">Natural Shampoo</a></li>
+        <li><a href="https://amzn.to/3zdEM96">The healthy plate</a></li>
+        <li><a href="https://amzn.to/3FX6uuv">Bach flowers</a></li>
+        <li><a href="https://amzn.to/3lNyXff">Herbals</a></li>
+      </ul>
+      <ul>
+        <li>
+          <h3 title="selection on the subject of education">Education</h3>
+        </li>
+        <li><a href="https://amzn.to/3KdMCpn">Education positive</a></li>
+        <li><a href="https://amzn.to/3lNYPaU">Humorous self-defense</a></li>
+        <li><a href="https://amzn.to/42GQkiF">Universal Rules</a></li>
+        <li><a href="https://amzn.to/3LYdDOT">Deals for students</a></li>
+        <li><a href="https://amzn.to/3lGVjPH">Emoticartes</a></li>
+      </ul>
+       <ul>
+          <li><h3 title="selection of good deals for budding gardeners">Garden</h3></li>
+          <li><a href="https://amzn.to/42MvGgL">Solar light</a></li>
+          <li><a href="https://amzn.to/3Kf6WXo">Outdoor Brazier</a></li>
+          <li><a href="https://amzn.to/3ZgCsIQ">Aromatics for Plants</a></li>
+          <li><a href="https://amzn.to/3lO0tcA">Seed bombs</a></li>
+          <li><a href="https://amzn.to/42JDNuH">Bonsaï</a></li>
+        </ul>
+        <ul>
+          <li><h3 title="selection of good deals for DIY tools">DIY</h3></li>
+          <li><a href="https://amzn.to/3LXHt65">Tools</a></li>
+          <li><a href="https://amzn.to/3JKNTCS">Dremel 3000</a></li>
+          <li><a href="https://amzn.to/3nlovfj">Socket box</a></li>
+          <li><a href="https://amzn.to/3FYnNLL">Magnetic Bracelet</a></li>
+          <li><a href="https://amzn.to/3LXhv2L">Bosch Accessories</a></li>
+        </ul>
+      <ul>
+          <li><h3 title="selection of good deals">Mode</h3></li>
+          <li><a href="https://amzn.to/3LVYe1u">Categories</a></li>
+          <li><a href="https://amzn.to/3TMIwaY">Sneakers Art</a></li>
+          <li><a href="https://amzn.to/3nutD0I">Tracksuit</a></li>
+          <li><a href="https://amzn.to/3FZJbA1">Basket</a></li>
+          <li><a href="https://amzn.to/3Zlh991">Eastpak Padded</a></li>
+        </ul>
+    </div>
+  </section>
+  <div class="pub">
+    <iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=8&p=12&l=ur1&category=amazon_business&banner=1C3QSD57GB1C45D29T82&f=ifr&linkID=80fb46e01264c126c464b9d3fda37df9&t=price-comberu-21&tracking_id=price-comberu-21" width="300" height="250" scrolling="no" marginwidth="0" style="border:none;" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe>
+    <iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=8&p=12&l=ur1&category=frhandcrafted&banner=1H8MGVFMQFSW4MXVT982&f=ifr&linkID=7ce93ae52c020754972e2213c2c3fb44&t=price-comberu-21&tracking_id=price-comberu-21" width="300" height="250" scrolling="no" marginwidth="0" style="border:none;" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"></iframe>
+  </div>
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><i class=""></i> Thank You</div>
+      <ul>
+        <li><a href="#">Price comparator</a></li>
+        <li><a href="#">Help me</a></li>
+        
+        <li><a href="mailto:">Contact </a></li>
+        
+      </ul>
+    </div>
+  </footer>
+  </html>
